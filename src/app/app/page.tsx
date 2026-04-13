@@ -112,7 +112,7 @@ export default async function AppPage() {
 
         {!session && (
           <div className="bg-blue-50 rounded-xl border border-blue-100 p-8 text-center">
-            <h2 className="font-bold text-slate-900 mb-2">Comece grátis — 3 faturas por mês</h2>
+            <h2 className="font-bold text-slate-900 mb-2">Cadastre-se para emitir suas faturas</h2>
             <p className="text-slate-600 text-sm mb-4">Cadastre-se para salvar suas faturas e acessar o histórico.</p>
             <div className="flex gap-3 justify-center">
               <Link href="/signup" className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white font-semibold px-6 py-2 rounded-lg hover:opacity-90">Cadastrar grátis</Link>

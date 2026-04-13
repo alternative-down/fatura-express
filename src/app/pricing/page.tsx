@@ -81,7 +81,7 @@ export default function PricingPage() {
               )}
               <h2 className="text-xl font-bold text-slate-900 mb-1">{plan.name}</h2>
               <div className="mb-2">
-                <span className="text-3xl font-bold text-slate-900">R$ {plan.price}</span>
+                <span className="text-3xl font-bold text-slate-900">R$ {plan.price.toFixed(2).replace(".", ",")}</span>
                 <span className="text-slate-500 text-sm">/mês</span>
               </div>
               <p className="text-sm text-slate-600 mb-6">{plan.tagline}</p>

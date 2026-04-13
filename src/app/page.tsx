@@ -55,7 +55,7 @@ export default function HomePage() {
               "✓ 100% online",
               "✓ PDF fiscal",
               "✓ Sem complicação",
-              "✓ Sem cadastro obrigatório",
+              "✓ PDF em 2 minutos",
               "✓ Cálculo automático de impostos",
             ].map((badge) => (
               <span key={badge} className="text-sm font-medium text-slate-600">{badge}</span>

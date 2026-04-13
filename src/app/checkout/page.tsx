@@ -116,7 +116,7 @@ function CheckoutContent() {
 
       <main className="max-w-xl mx-auto px-6 py-10">
         <h1 className="text-2xl font-bold text-slate-900 mb-2">Assinar plano {label}</h1>
-        <p className="text-slate-600 mb-8">R$ {price}/mês — cobrado uma única vez e renovado mensalmente.</p>
+        <p className="text-slate-600 mb-8">R$ {price.toFixed(2).replace(".", ",")}/mês — cobrado uma única vez e renovado mensalmente.</p>
 
         {/* Order summary */}
         <div className="bg-white rounded-2xl border border-slate-200 p-6 mb-6">
@@ -125,7 +125,7 @@ function CheckoutContent() {
               <div className="font-semibold text-slate-900">Plano {label}</div>
               <div className="text-sm text-slate-500">Fatura Express</div>
             </div>
-            <div className="text-2xl font-bold text-slate-900">R$ {price}</div>
+            <div className="text-2xl font-bold text-slate-900">R$ {price.toFixed(2).replace(".", ",")}</div>
           </div>
         </div>
 

@@ -10,7 +10,7 @@ export default function SignupPage() {
           <p className="text-slate-500 mt-1">Crie sua conta e gere sua primeira fatura</p>
         </div>
         <div className="bg-white rounded-2xl border border-blue-100 p-8 text-center">
-          <p className="text-slate-600 text-sm mb-6">Página de cadastro em desenvolvimento.</p>
+          <p className="text-slate-600 text-sm mb-6">O cadastro será ativado em breve. Acesse /login para entrar ou aguarde a próxima atualização.</p>
           <Link href="/" className="text-blue-600 hover:underline font-medium">← Voltar para home</Link>
         </div>
       </div>
