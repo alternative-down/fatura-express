@@ -1,5 +1,5 @@
 export interface Plan {
-  id: 'free' | 'individual' | 'ilimitado';
+  id: 'individual' | 'ilimitado';
   name: string;
   price: number;
   invoicesPerMonth: number;
@@ -8,18 +8,6 @@ export interface Plan {
 }
 
 export const PLANS: Plan[] = [
-  {
-    id: 'free',
-    name: 'Grátis',
-    price: 0,
-    invoicesPerMonth: 3,
-    features: [
-      '3 faturas por mês',
-      'Todos os campos fiscais',
-      'Download em PDF',
-      'Sem cadastro obrigatório',
-    ],
-  },
   {
     id: 'individual',
     name: 'Individual',
