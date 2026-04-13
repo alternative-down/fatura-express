@@ -5,9 +5,34 @@ import { eq } from 'drizzle-orm';
 import { signToken } from '@/lib/auth';
 import bcrypt from 'bcryptjs';
 
+const ASAAS_API_KEY = process.env.ASAAS_API_KEY || '';
+const ASAAS_ENDPOINT = 'https://api.asaas.com/api/v3';
+
+async function createAsaasCustomer(email: string, name?: string): Promise<string | null> {
+  if (!ASAAS_API_KEY) return null;
+  try {
+    const response = await fetch(`${ASAAS_ENDPOINT}/customers`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        access_token: ASAAS_API_KEY,
+      },
+      body: JSON.stringify({
+        email,
+        name: name || email.split('@')[0],
+      }),
+    });
+    if (!response.ok) return null;
+    const data = await response.json();
+    return data.id as string;
+  } catch {
+    return null;
+  }
+}
+
 export async function POST(request: Request) {
   try {
-    const { email, password } = await request.json();
+    const { email, password, name } = await request.json();
     if (!email || !password) {
       return NextResponse.json({ error: 'Email e senha são obrigatórios' }, { status: 400 });
     }
@@ -17,14 +42,21 @@ export async function POST(request: Request) {
     }
     const passwordHash = await bcrypt.hash(password, 10);
     const userId = crypto.randomUUID();
+
+    // Create Asaas customer for payment processing
+    const asaasCustomerId = await createAsaasCustomer(email, name);
+
     await db.insert(users).values({
       id: userId,
       email,
+      name: name || null,
       passwordHash,
+      asaasCustomerId,
       createdAt: new Date(),
     });
+
     const token = await signToken({ userId, email });
-    const response = NextResponse.json({ ok: true });
+    const response = NextResponse.json({ ok: true, asaasCustomerId });
     response.cookies.set('token', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
