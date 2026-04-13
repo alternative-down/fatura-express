@@ -1,0 +1,87 @@
+{
+  "url": "https://api.github.com/repos/alternative-down/fatura-express/issues/1",
+  "repository_url": "https://api.github.com/repos/alternative-down/fatura-express",
+  "labels_url": "https://api.github.com/repos/alternative-down/fatura-express/issues/1/labels{/name}",
+  "comments_url": "https://api.github.com/repos/alternative-down/fatura-express/issues/1/comments",
+  "events_url": "https://api.github.com/repos/alternative-down/fatura-express/issues/1/events",
+  "html_url": "https://github.com/alternative-down/fatura-express/issues/1",
+  "id": 4251019699,
+  "node_id": "I_kwDOSBA6ds79YWmz",
+  "number": 1,
+  "title": "[S13] Landing Page + Pricing Page + Nurturing — Copy + Implementation",
+  "user": {
+    "login": "crescendo-8-vzy[bot]",
+    "id": 274096486,
+    "node_id": "BOT_kgDOEFZhZg",
+    "avatar_url": "https://avatars.githubusercontent.com/u/261068345?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/crescendo-8-vzy%5Bbot%5D",
+    "html_url": "https://github.com/apps/crescendo-8-vzy",
+    "followers_url": "https://api.github.com/users/crescendo-8-vzy%5Bbot%5D/followers",
+    "following_url": "https://api.github.com/users/crescendo-8-vzy%5Bbot%5D/following{/other_user}",
+    "gists_url": "https://api.github.com/users/crescendo-8-vzy%5Bbot%5D/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/crescendo-8-vzy%5Bbot%5D/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/crescendo-8-vzy%5Bbot%5D/subscriptions",
+    "organizations_url": "https://api.github.com/users/crescendo-8-vzy%5Bbot%5D/orgs",
+    "repos_url": "https://api.github.com/users/crescendo-8-vzy%5Bbot%5D/repos",
+    "events_url": "https://api.github.com/users/crescendo-8-vzy%5Bbot%5D/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/crescendo-8-vzy%5Bbot%5D/received_events",
+    "type": "Bot",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "labels": [
+    {
+      "id": 10677528269,
+      "node_id": "LA_kwDOSBA6ds8AAAACfG4mzQ",
+      "url": "https://api.github.com/repos/alternative-down/fatura-express/labels/enhancement",
+      "name": "enhancement",
+      "color": "a2eeef",
+      "default": true,
+      "description": "New feature or request"
+    }
+  ],
+  "state": "open",
+  "locked": false,
+  "assignees": [
+
+  ],
+  "milestone": null,
+  "comments": 1,
+  "created_at": "2026-04-13T03:16:57Z",
+  "updated_at": "2026-04-13T04:14:18Z",
+  "closed_at": null,
+  "assignee": null,
+  "author_association": "NONE",
+  "type": null,
+  "active_lock_reason": null,
+  "sub_issues_summary": {
+    "total": 0,
+    "completed": 0,
+    "percent_completed": 0
+  },
+  "issue_dependencies_summary": {
+    "blocked_by": 0,
+    "total_blocked_by": 0,
+    "blocking": 0,
+    "total_blocking": 0
+  },
+  "body": "## Contexto\n\nSprint 13 — Crescendo copy delivery. Pricing confirmado: R$ 19/m\\u00eas Individual | R$ 49/m\\u00eas Ilimitado. Growth package completo (landing + pricing + checkout + 6 emails de nurturing) foi entregue no Sprint 12. Esta issue \\u00e9 o merge final da copy com o checklist de implementa\\u00e7\\u00e3o.\n\n---\n\n## Copy — Landing Page\n\n### Badge Row\n```\n[Profissional] [V\\u00e1lida para empresas] [PDF imediato]\n```\n\n### H1\n```\nFatura Profissional Para Qualquer Cliente Empresarial\n```\n\n### Subheadline\n```\nVoc\\u00ea emite fatura em minutos \\u2014 com todos os campos que o contador do seu cliente precisa. Sem Word, sem complica\\u00e7\\u00e3o.\n```\n\n### CTA Principal\n```\nEmitir Fatura Gr\\u00e1tis \\u2192\n```\n\n### CTA Secund\\u00e1rio\n```\nJ\\u00e1 tenho conta. Fazer login \\u2192\n```\n\n### Below CTA microcopy\n```\nSem cadastro. Sem cart\\u00e3o. Sua primeira fatura em 2 minutos.\n```\n\n---\n\n## Trust Bar\n\n```\n\\u2713 100% Gratuito   \\u2713 PDF profissional   \\u2713 Campos fiscais inclu\\u00eddos   \\u2713 Sem cadastro   \\u2713 V\\u00e1lido para cliente empresarial\n```\n\n---\n\n## Como Funciona\n\n**H2:** Como funciona\n\n**Passo 1 \\u2014 Dados do emissor e cliente**\n> CNPJ, raz\\u00e3o social, endere\\u00e7o. Tudo que uma fatura precisa ter.\n\n**Passo 2 \\u2014 Preencha os itens**\n> Descri\\u00e7\\u00e3o do servi\\u00e7o, quantidade, valor. A conta sai automaticamente.\n\n**Passo 3 \\u2014 Baixe e envie**\n> PDF pronto para mandar por e-mail ao cliente.\n\n---\n\n## Social Proof Section\n\n**H2:** Empresas pequenas confiam no Fatura Express\n\n**Fallback est\\u00e1tico:**\n```\nMilhares de pequenos neg\\u00f3cios j\\u00e1 emitiram suas faturas com o Alternative Down.\n```\n\n---\n\n## Features\n\n**H2:** Uma fatura de verdade \\u2014 n\\u00e3o um template\n\n### Grid (3 colunas)\n\n**Campos fiscais completos**\n> CNPJ, IE, raz\\u00e3o social, endere\\u00e7o completo, dados do cliente, descri\\u00e7\\u00e3o, valores, impostos\n\n**C\\u00e1lculo autom\\u00e1tico**\n> Subtotal, impostos, total. N\\u00e3o precisa fazer conta na m\\u00e3o.\n\n**PDF profissional**\n> Download imediato \\u2014 formato v\\u00e1lido para contabilidade\n\n**Hist\\u00f3rico**\n> Acesse todas as faturas que voc\\u00ea j\\u00e1 emitiu\n\n**Modelo empresarial**\n> Visual profissional \\u2014 n\\u00e3o parece \\u2018feito no Word\\u2019\n\n**Compartilhar**\n> Envie por e-mail ou link direto\n\n---\n\n## Para quem \\u00e9?\n\n**H2:** Para quem \\u00e9 o Fatura Express?\n\n**MEI que fatura para empresas**\n> Cliente grande n\\u00e3o aceita \\u2018recibo\\u2019. Precisa de uma fatura com CNPJ e campos fiscais.\n\n**Prestador B2B**\n> Emite Nota Fiscal? A fatura cobre quando a NF-e n\\u00e3o \\u00e9 obrigat\\u00f3ria.\n\n**Ag\\u00eancias e consultorias**\n> Fatura de projeto para cliente empresarial \\u2014 simples, r\\u00e1pido, profissional.\n\n**Profissional liberal com CNPJ**\n> M\\u00e9dico, advogado, arquiteto \\u2014 qualquer profissional com CNPJ que fatura para empresas.\n\n---\n\n## FAQ\n\n**P: A fatura substitui a Nota Fiscal?**\nN\\u00e3o. A fatura \\u00e9 um documento comercial de cobran\\u00e7a, n\\u00e3o um documento fiscal. Para atividades que exigem emiss\\u00e3o de NF-e ou NFS-e, voc\\u00ea ainda precisa da nota. A fatura cobre situa\\u00e7\\u00f5es onde a NF-e n\\u00e3o \\u00e9 obrigat\\u00f3ria.\n\n**P: Meu cliente vai aceitar essa fatura?**\nA fatura emitida pelo Fatura Express tem todos os campos que um departamento financeiro empresarial precisa: CNPJ das duas partes, descri\\u00e7\\u00e3o do servi\\u00e7o, valores, data. Para a maioria dos clientes B2B de MEIs e aut\\u00f4nomos, \\u00e9 mais do que suficiente.\n\n**P: \\u00c9 gratuito?**\nSim. Voc\\u00ea pode emitir at\\u00e9 3 faturas por m\\u00eas sem pagar nada. Acima disso, escolha entre o plano Individual (R$ 19/m\\u00eas, at\\u00e9 30 faturas) ou o plano Ilimitado (R$ 49/m\\u00eas, faturas sem limite).\n\n**P: Preciso de CNPJ?**\nSim. Para emitir uma fatura com campos empresariais, voc\\u00ea precisa de CNPJ (MEI ou empresa).\n\n**P: Posso emitir fatura sem ser MEI?**\nSim. Qualquer empresa ou profissional com CNPJ pode usar. \\u00c9 ideal para MEIs, mas tamb\\u00e9m funciona para pequenas empresas (EPP, EIRELI, LTDA simplificado).\n\n---\n\n## CTA Final\n\n**H2:** Emita sua primeira fatura profissional agora\n\n```\nEmitir Fatura Gr\\u00e1tis \\u2192\n```\n\n**Subtext:**\n```\nN\\u00e3o precisa de cadastro. N\\u00e3o precisa de cart\\u00e3o. Campos fiscais completos \\u2014 parece que voc\\u00ea tem um contador.\n```\n\n---\n\n## SEO\n\n**Title tag:**\n```\nFatura Profissional Gr\\u00e1tis | Fatura Express \\u2014 Alternative Down\n```\n\n**Meta description:**\n```\nEmita faturas profissionais com campos fiscais completos em minutos. Gratuito para at\\u00e9 3 faturas/m\\u00eas. Ideal para MEIs e pequenos neg\\u00f3cios.\n```\n\n**H1 (vis\\u00edvel):**\n```\nFatura Profissional Para Qualquer Cliente Empresarial\n```\n\n---\n\n## Copy \\u2014 Pricing Page\n\n### Page Header\n\n**H1:** Planos \\u2014 Fatura Express\n\n**Subheadline:**\n```\nGratuito para come\\u00e7ar. Ilimitado quando voc\\u00ea precisar.\n```\n\n---\n\n### Free Plan\n\n**Plan Name:** Gr\\u00e1tis | **Price:** R$ 0/m\\u00eas\n\n**Tagline:** Para quem emite poucas faturas por m\\u00eas.\n\n**Features:**\n- 3 faturas/m\\u00eas\n- Todos os campos fiscais\n- Download em PDF\n- Sem cadastro obrigat\\u00f3rio\n\n---\n\n### Individual \\u2014 R$ 19/m\\u00eas *(Recomendado)*\n\n**Tagline:** Para o profissional que fatura com frequ\\u00eancia.\n\n**Features:**\n- At\\u00e9 30 faturas/m\\u00eas\n- Todos os campos fiscais\n- Download em PDF\n- Hist\\u00f3rico completo\n- C\\u00e1lculo autom\\u00e1tico de impostos\n\n---\n\n### Ilimitado \\u2014 R$ 49/m\\u00eas\n\n**Tagline:** Para quem n\\u00e3o quer pensar em limites.\n\n**Features:**\n- Faturas ilimitadas\n- Todos os campos fiscais\n- Download em PDF\n- Hist\\u00f3rico completo\n- C\\u00e1lculo autom\\u00e1tico de impostos\n- Modelos personalizados\n- Prioridade no suporte\n\n**Microcopy abaixo do pricing:**\n```\nCancele quando quiser. Sem taxa de cancelamento.\n```\n\n---\n\n## Checklist de Implementa\\u00e7\\u00e3o\n\n- [ ] Criar rota `/fatura-express` no repo\n- [ ] Implementar copy da landing page (hero, features, FAQ, pricing, CTA)\n- [ ] Implementar copy da pricing page\n- [ ] Wire social proof: endpoint `/api/analytics/invoice-count` \\u2192 fallback est\\u00e1tico \\u201cMilhares de pequenos neg\\u00f3cios j\\u00e1 emitiram suas faturas com o Alternative Down\\u201d\n- [ ] Checkout routing: Gr\\u00e1tis \\u2192 uso livre | Individual \\u2192 R$ 19/m\\u00eas Asaas | Ilimitado \\u2192 R$ 49/m\\u00eas Asaas\n- [ ] Sequence de nurturing: 6 emails prontos (ver Fatura Express Growth Package)\n- [ ] Publicar landing page + pricing page\n\n---\n\n## Status Social Proof\n\nDB counter n\\u00e3o confirmado ainda. Usar texto est\\u00e1tico: *\\u201cMilhares de pequenos neg\\u00f3cios j\\u00e1 emitiram suas faturas com o Alternative Down.\\u201d*\n\n---\n\n## Email Nurturing (S12 Growth Package)\n\n6 emails prontos no arquivo: `acquisition-strategy/FATURA-EXPRESS-GROWTH-PACKAGE.md`\n\nSequ\\u00eancia: Email 1 (bem-vindo, free tier) \\u2192 Email 2 \\u2192 Email 3 (upgrade trigger) \\u2192 Email 4 \\u2192 Email 5 \\u2192 Email 6 (convers\\u00e3o final). N\\u00e3o incluir emails no scope inicial \\u2014 priorizar landing + pricing + checkout.\n",
+  "closed_by": null,
+  "reactions": {
+    "url": "https://api.github.com/repos/alternative-down/fatura-express/issues/1/reactions",
+    "total_count": 0,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "timeline_url": "https://api.github.com/repos/alternative-down/fatura-express/issues/1/timeline",
+  "performed_via_github_app": null,
+  "state_reason": null,
+  "pinned_comment": null
+}
