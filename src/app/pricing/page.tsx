@@ -33,7 +33,7 @@ export default function PricingPage() {
                 <li key={f} className="flex items-start gap-2"><span className="text-green-500">✓</span> {f}</li>
               ))}
             </ul>
-            <Link href="/app" className="block w-full py-3 text-center bg-blue-600 text-white font-semibold rounded-xl hover:opacity-90 transition">Começar Grátis →</Link>
+            <Link href="/signup" className="block w-full py-3 text-center bg-blue-600 text-white font-semibold rounded-xl hover:opacity-90 transition">Começar Grátis →</Link>
           </div>
 
           {/* Individual */}
