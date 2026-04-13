@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PLANS } from "@/lib/plans";
 
 export default function PricingPage() {
   return (
@@ -13,76 +14,85 @@ export default function PricingPage() {
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-6 py-20">
+      <main className="max-w-4xl mx-auto px-6 py-20">
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-slate-900 mb-4">Planos — Fatura Express</h1>
-          <p className="text-xl text-slate-600">Gratuito para começar. Ilimitado quando você precisar.</p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {/* Grátis */}
-          <div className="bg-white rounded-2xl border border-blue-200 p-8 flex flex-col">
-            <h2 className="text-xl font-bold text-slate-900 mb-1">Grátis</h2>
-            <p className="text-slate-500 text-sm mb-4">Para quem emite poucas faturas por mês.</p>
-            <div className="mb-2">
-              <span className="text-4xl font-bold text-slate-900">R$ 0</span>
-              <span className="text-slate-500">/mês</span>
-            </div>
-            <p className="text-sm text-slate-500 mb-4">3 faturas por mês</p>
-            <ul className="space-y-3 mb-8 text-sm text-slate-600 flex-1">
-              {["3 faturas por mês", "Todos os campos fiscais", "Download em PDF", "Sem cadastro obrigatório"].map(f => (
-                <li key={f} className="flex items-start gap-2"><span className="text-green-500">✓</span> {f}</li>
-              ))}
-            </ul>
-            <Link href="/signup" className="block w-full py-3 text-center bg-blue-600 text-white font-semibold rounded-xl hover:opacity-90 transition">Começar Grátis →</Link>
-          </div>
-
-          {/* Individual */}
-          <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl border-2 border-blue-400 p-8 flex flex-col relative shadow-md">
-            <span className="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">Recomendado</span>
-            <h2 className="text-xl font-bold text-slate-900 mb-1">Individual</h2>
-            <p className="text-slate-500 text-sm mb-4">Para o profissional que fatura com frequência.</p>
-            <div className="mb-2">
-              <span className="text-4xl font-bold text-slate-900">R$ 19</span>
-              <span className="text-slate-500">/mês</span>
-            </div>
-            <p className="text-sm text-slate-500 mb-4">Até 30 faturas por mês</p>
-            <ul className="space-y-3 mb-8 text-sm text-slate-600 flex-1">
-              {["30 faturas por mês", "Todos os campos fiscais", "Download em PDF", "Histórico completo", "Cálculo automático de impostos"].map(f => (
-                <li key={f} className="flex items-start gap-2"><span className="text-green-500">✓</span> {f}</li>
-              ))}
-            </ul>
-            <Link href="/checkout?plan=individual" className="block w-full py-3 text-center bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-xl hover:opacity-90 transition">Assinar Individual →</Link>
-          </div>
-
-          {/* Ilimitado */}
-          <div className="bg-white rounded-2xl border border-blue-200 p-8 flex flex-col">
-            <h2 className="text-xl font-bold text-slate-900 mb-1">Ilimitado</h2>
-            <p className="text-slate-500 text-sm mb-4">Para quem não quer pensar em limites.</p>
-            <div className="mb-2">
-              <span className="text-4xl font-bold text-slate-900">R$ 49</span>
-              <span className="text-slate-500">/mês</span>
-            </div>
-            <p className="text-sm text-slate-500 mb-4">Faturas ilimitadas</p>
-            <ul className="space-y-3 mb-8 text-sm text-slate-600 flex-1">
-              {["Faturas ilimitadas", "Todos os campos fiscais", "Download em PDF", "Histórico completo", "Cálculo automático de impostos", "Modelos personalizados", "Prioridade no suporte"].map(f => (
-                <li key={f} className="flex items-start gap-2"><span className="text-green-500">✓</span> {f}</li>
-              ))}
-            </ul>
-            <Link href="/checkout?plan=ilimitado" className="block w-full py-3 text-center bg-blue-600 text-white font-semibold rounded-xl hover:opacity-90 transition">Assinar Ilimitado →</Link>
-          </div>
+          <p className="text-xl text-slate-600">Plano para cada tamanho de operação.</p>
         </div>
 
-        <p className="text-center text-slate-500 text-sm mt-8">Cancele quando quiser. Sem taxa de cancelamento.</p>
+        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          {PLANS.map((plan) => {
+            const ctaHref =
+              plan.id === "individual"
+                ? "/checkout?plan=individual"
+                : "/checkout?plan=ilimitado";
+
+            return (
+              <div
+                key={plan.id}
+                className={
+                  plan.recommended
+                    ? "relative rounded-2xl p-8 flex flex-col bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-blue-400 shadow-md"
+                    : "rounded-2xl p-8 flex flex-col bg-white border border-blue-200"
+                }
+              >
+                {plan.recommended && (
+                  <span className="absolute top-4 right-4 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Recomendado
+                  </span>
+                )}
+                <h2 className="text-xl font-bold text-slate-900 mb-1">{plan.name}</h2>
+                <p className="text-slate-500 text-sm mb-4">
+                  {plan.invoicesPerMonth === Infinity
+                    ? "Para quem não quer pensar em limites."
+                    : "Para o profissional que fatura com frequência."}
+                </p>
+
+                <div className="mb-2">
+                  <span className="text-4xl font-bold text-slate-900">R$ {plan.price}</span>
+                  <span className="text-slate-500">/mês</span>
+                </div>
+                <p className="text-sm text-slate-500 mb-6">
+                  {plan.invoicesPerMonth === Infinity
+                    ? "Faturas ilimitadas"
+                    : `Até ${plan.invoicesPerMonth} faturas por mês`}
+                </p>
+
+                <ul className="space-y-3 mb-8 flex-1">
+                  {plan.features.map((f) => (
+                    <li key={f} className="text-sm text-slate-600 flex items-start gap-2">
+                      <span className="text-green-500">✓</span> {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  href={ctaHref}
+                  className={
+                    plan.recommended
+                      ? "block w-full py-3 text-center font-semibold rounded-xl transition bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:opacity-90"
+                      : "block w-full py-3 text-center font-semibold rounded-xl transition bg-blue-600 text-white hover:opacity-90"
+                  }
+                >
+                  Assinar {plan.name} →
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+
+        <p className="text-center text-slate-500 text-sm mt-8">
+          Cancele quando quiser. Sem taxa de cancelamento.
+        </p>
       </main>
 
-      {/* FAQ */}
       <section className="max-w-3xl mx-auto px-6 pb-20">
         <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">Dúvidas frequentes</h2>
         <div className="space-y-4">
           {[
             { q: "Posso cancelar a qualquer momento?", a: "Sim. Cancele quando quiser, sem taxa de cancelamento." },
             { q: "O plano Individual renova automaticamente?", a: "Sim. A renovação é automática todo mês. Você pode cancelar a qualquer momento pelo painel da sua conta." },
-            { q: "A fatura substitui a Nota Fiscal?", a: "Não. A fatura é um documento comercial de cobrança, não um documento fiscal. Para atividades que exigem emissão de NF-e ou NFS-e, você ainda precisa da nota." },
+            { q: "A fatura substitui a Nota Fiscal?", a: "Não. A fatura é um documento comercial de cobrança, não um documento fiscal." },
             { q: "Posso emitir fatura sem ser MEI?", a: "Sim. Qualquer empresa ou profissional com CNPJ pode usar." },
           ].map((faq, i) => (
             <div key={i} className="bg-white rounded-xl border border-blue-100 p-5 text-left">
