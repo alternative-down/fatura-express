@@ -10,7 +10,7 @@ export default function LoginPage() {
           <p className="text-slate-500 mt-1">Faça login para gerar suas faturas</p>
         </div>
         <div className="bg-white rounded-2xl border border-blue-100 p-8 text-center">
-          <p className="text-slate-600 text-sm mb-6">Página de login em desenvolvimento.</p>
+          <p className="text-slate-600 text-sm mb-6">O login será ativado em breve. Aguarde a próxima atualização.</p>
           <Link href="/" className="text-blue-600 hover:underline font-medium">← Voltar para home</Link>
         </div>
       </div>
