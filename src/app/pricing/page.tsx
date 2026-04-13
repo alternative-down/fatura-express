@@ -18,7 +18,6 @@ export default function PricingPage() {
           <h1 className="text-4xl font-bold text-slate-900 mb-4">Planos — Fatura Express</h1>
           <p className="text-xl text-slate-600">Gratuito para começar. Ilimitado quando você precisar.</p>
         </div>
-
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {/* Grátis */}
           <div className="bg-white rounded-2xl border border-blue-200 p-8 flex flex-col">

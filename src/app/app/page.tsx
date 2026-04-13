@@ -65,21 +65,47 @@ export default async function AppPage() {
           ))}
         </div>
 
-        {session && userInvoices.length > 0 && (
+        {session && (
           <div>
-            <h2 className="text-xl font-semibold text-slate-900 mb-4">Faturas recentes</h2>
-            <div className="bg-white rounded-xl shadow-sm border border-blue-100 divide-y divide-blue-50">
-              {userInvoices.map((inv) => (
-                <div key={inv.id} className="p-4 flex items-center justify-between">
-                  <div>
-                    <p className="font-medium text-slate-900 text-sm">{TEMPLATES.find(t => t.id === inv.templateId)?.name || inv.templateId}</p>
-                    <p className="text-xs text-slate-500">R$ {inv.amount} · {inv.status}</p>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl font-semibold text-slate-900">Faturas recentes</h2>
+              <Link href="/app/invoices" className="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                Ver todas →
+              </Link>
+            </div>
+            {userInvoices.length > 0 ? (
+              <div className="bg-white rounded-xl shadow-sm border border-blue-100 divide-y divide-blue-50">
+                {userInvoices.map((inv) => (
+                  <div key={inv.id} className="p-4 flex items-center justify-between">
+                    <div>
+                      <p className="font-medium text-slate-900 text-sm">{TEMPLATES.find(t => t.id === inv.templateId)?.name || inv.templateId}</p>
+                      <p className="text-xs text-slate-500">R$ {inv.amount} · {inv.status}</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className={`text-xs font-medium px-2 py-1 rounded-full ${inv.status === 'completed' ? 'bg-blue-50 text-blue-600' : 'bg-yellow-50 text-yellow-600'}`}>
+                        {inv.status}
+                      </span>
+                      <Link href={`/app/invoices/${inv.id}`} className="text-blue-600 hover:text-blue-800 text-sm">
+                        Ver →
+                      </Link>
+                    </div>
                   </div>
-                  <span className={`text-xs font-medium px-2 py-1 rounded-full ${inv.status === 'completed' ? 'bg-blue-50 text-blue-600' : 'bg-yellow-50 text-yellow-600'}`}>
-                    {inv.status}
-                  </span>
-                </div>
-              ))}
+                ))}
+              </div>
+            ) : (
+              <div className="bg-white rounded-xl shadow-sm border border-blue-100 p-8 text-center">
+                <p className="text-slate-500 text-sm mb-4">Nenhuma fatura emitida ainda.</p>
+                <Link href="/app/generate" className="bg-blue-600 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-700 transition text-sm">
+                  Emitir primeira fatura →
+                </Link>
+              </div>
+            )}
+            <div className="mt-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100 p-6">
+              <h3 className="font-semibold text-slate-900 mb-1">Precisa de mais faturas?</h3>
+              <p className="text-slate-600 text-sm mb-4">Com o plano Individual (R$ 19/mês) você emite até 30 faturas por mês com histórico completo.</p>
+              <Link href="/pricing" className="inline-block bg-blue-600 text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-700 transition text-sm">
+                Ver planos →
+              </Link>
             </div>
           </div>
         )}
