@@ -15,9 +15,8 @@ export default function HomePage() {
             <Link href="#como-funciona" className="text-slate-600 hover:text-blue-600 text-sm font-medium">Como funciona</Link>
             <Link href="#features" className="text-slate-600 hover:text-blue-600 text-sm font-medium">Recursos</Link>
             <Link href="#pricing" className="text-slate-600 hover:text-blue-600 text-sm font-medium">Preços</Link>
-            <Link href="/app" className="text-slate-600 hover:text-blue-600 text-sm font-medium">Entrar</Link>
-            <Link href="/app" className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white font-semibold px-4 py-2 rounded-lg hover:opacity-90 text-sm">
-              Emitir fatura →
+            <Link href="/login" className="text-slate-600 hover:text-blue-600 text-sm font-medium">Entrar</Link>
+            <Link href="/signup" className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white font-semibold px-4 py-2 rounded-lg hover:opacity-90 text-sm">Emitir fatura →
             </Link>
           </nav>
         </div>
@@ -36,8 +35,7 @@ export default function HomePage() {
             Você emite fatura em minutos — com todos os campos que o contador do seu cliente precisa. Sem Word, sem complicação.
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
-            <Link href="/app" className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white font-bold px-8 py-4 rounded-xl hover:shadow-lg transition text-lg">
-              Emitir Fatura Grátis →
+            <Link href="/signup" className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white font-bold px-8 py-4 rounded-xl hover:shadow-lg transition text-lg">Emitir Fatura Grátis →
             </Link>
             <Link href="/login" className="text-slate-600 hover:text-blue-600 font-medium px-4 py-4 text-lg">
               Já tenho conta →
@@ -193,7 +191,7 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/app" className={`block text-center py-3 rounded-xl font-semibold transition ${plan.recommended ? 'bg-white text-blue-600 hover:opacity-90' : 'bg-blue-600 text-white hover:opacity-90'}`}>
+                <Link href={plan.id === "free" ? "/signup" : plan.id === "individual" ? "/checkout?plan=individual" : "/checkout?plan=ilimitado"} className={`block text-center py-3 rounded-xl font-semibold transition ${plan.recommended ? 'bg-white text-blue-600 hover:opacity-90' : 'bg-blue-600 text-white hover:opacity-90'}`}>
                   {plan.price === 0 ? 'Começar grátis →' : 'Assinar →'}
                 </Link>
               </div>
@@ -204,8 +202,7 @@ export default function HomePage() {
         {/* Final CTA */}
         <section className="bg-gradient-to-br from-blue-600 to-indigo-500 py-20 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Emita sua primeira fatura profissional agora</h2>
-          <Link href="/app" className="inline-block bg-white text-blue-600 font-bold px-8 py-4 rounded-xl hover:opacity-90 text-lg mt-4">
-            Emitir Fatura Grátis →
+          <Link href="/signup" className="inline-block bg-white text-blue-600 font-bold px-8 py-4 rounded-xl hover:opacity-90 text-lg mt-4">Emitir Fatura Grátis →
           </Link>
           <p className="text-blue-100 mt-4 text-sm">Não precisa de cadastro. Não precisa de cartão. Campos fiscais completos.</p>
         </section>
