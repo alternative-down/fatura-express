@@ -31,7 +31,7 @@ export default function HomePage() {
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-            Fatura Profissional para o Pequeno Empresário.<br />Sem bureaucracy.
+            Fatura Profissional Para Qualquer Cliente Empresarial
           </h1>
 
           <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
