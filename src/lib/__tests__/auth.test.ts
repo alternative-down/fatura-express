@@ -1,25 +1,21 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
-// hoisted mock — vi.mock is always hoisted to the top of the file,
-// so mockJwtVerify is available before any imports run
+// vi.hoisted — mockJwtVerify reference available before vi.mock evaluation
 const { mockJwtVerify } = vi.hoisted(() => {
   return { mockJwtVerify: vi.fn() };
 });
 
 vi.mock('jose', () => ({
-  SignJWT: vi.fn().mockImplementation(function MockSignJWT(_payload: unknown) {
+  SignJWT: function MockSignJWT(_payload: unknown) {
     return {
       setProtectedHeader: vi.fn().mockReturnThis(),
       setIssuedAt: vi.fn().mockReturnThis(),
       setExpirationTime: vi.fn().mockReturnThis(),
       sign: vi.fn().mockResolvedValue('mock.jwt.token'),
     };
-  }),
+  },
   jwtVerify: mockJwtVerify,
 }));
-
-// Set JWT_SECRET BEFORE auth.ts is imported (module-level, runs during module eval)
-process.env.JWT_SECRET = 'test-jwt-secret-for-unit-testing-32-chars-long!!';
 
 import { signToken, verifyToken } from '../auth';
 
