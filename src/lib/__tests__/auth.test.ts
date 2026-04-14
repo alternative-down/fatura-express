@@ -1,68 +1,60 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-
-// Hoisted mock so variable is available at hoisting time
-const { mockJwtVerify } = vi.hoisted(() => {
-  const fn = vi.fn();
-  return { mockJwtVerify: fn };
-});
-
-// Mock jose before auth module loads
-vi.mock('jose', () => {
-  const mockSignJwt = vi.fn().mockImplementation(function mockConstructor(
-    this: Record<string, unknown>,
-    payload: unknown,
-  ) {
-    return {
-      setProtectedHeader: vi.fn().mockReturnThis(),
-      setIssuedAt: vi.fn().mockReturnThis(),
-      setExpirationTime: vi.fn().mockReturnThis(),
-      sign: vi.fn().mockResolvedValue('mock.jwt.token'),
-    };
-  });
-  return {
-    SignJWT: mockSignJwt,
-    jwtVerify: mockJwtVerify,
-  };
-});
-
+import { describe, it, expect } from 'vitest';
 import { signToken, verifyToken } from '../auth';
 
 describe('signToken', () => {
-  it('returns a promise resolving to a JWT string', async () => {
-    const payload = { userId: 'user-123', email: 'test@example.com' };
-    const token = await signToken(payload);
+  it('returns a promise resolving to a JWT-like string', async () => {
+    const token = await signToken({ userId: 'user-123', email: 'test@example.com' });
     expect(typeof token).toBe('string');
     expect(token.length).toBeGreaterThan(0);
+    // JWT-like structure: three dot-separated base64url segments
+    expect(token.split('.').length).toBe(3);
   });
 
-  it('accepts arbitrary extra fields', async () => {
-    const payload = { userId: 'user-1', email: 'a@b.com', name: 'Test', role: 'admin' as const };
-    const token = await signToken(payload);
+  it('accepts arbitrary extra fields in payload', async () => {
+    const token = await signToken({
+      userId: 'user-1',
+      email: 'a@b.com',
+      name: 'Test',
+      role: 'admin' as const,
+    });
     expect(typeof token).toBe('string');
+    expect(token.split('.').length).toBe(3);
+  });
+
+  it('encodes different payloads as different tokens', async () => {
+    const t1 = await signToken({ userId: 'alice' });
+    const t2 = await signToken({ userId: 'bob' });
+    expect(t1).not.toBe(t2);
   });
 });
 
 describe('verifyToken', () => {
-  beforeEach(() => {
-    mockJwtVerify.mockClear();
-  });
-
-  it('returns payload for valid token', async () => {
-    const mockPayload = { userId: 'user-123', email: 'test@example.com' };
-    mockJwtVerify.mockResolvedValueOnce({ payload: mockPayload });
-    const result = await verifyToken('valid.token.here');
-    expect(result).toEqual(mockPayload);
-  });
-
-  it('returns null on invalid token', async () => {
-    mockJwtVerify.mockRejectedValueOnce(new Error('Invalid token'));
-    const result = await verifyToken('bad.token');
+  it('returns null for a structurally invalid token string', async () => {
+    const result = await verifyToken('not-a-valid-jwt.at.all');
     expect(result).toBeNull();
   });
 
-  it('returns null when jwtVerify throws', async () => {
-    mockJwtVerify.mockRejectedValueOnce(new Error('expired'));
-    const result = await verifyToken('expired.token');
+  it('returns null for empty string', async () => {
+    const result = await verifyToken('');
     expect(result).toBeNull();
+  });
+
+  it('roundtrips: sign + verify returns the original payload', async () => {
+    const payload = { userId: 'user-123', email: 'test@example.com' };
+    const token = await signToken(payload);
+    const verified = await verifyToken(token);
+    expect(verified).not.toBeNull();
+    expect(verified).toHaveProperty('userId', 'user-123');
+    expect(verified).toHaveProperty('email', 'test@example.com');
+    expect(verified).toHaveProperty('iat');
+    expect(verified).toHaveProperty('exp');
+  });
+
+  it('includes iat and exp in verified payload', async () => {
+    const token = await signToken({ userId: 'test' });
+    const verified = await verifyToken(token);
+    expect(typeof verified?.iat).toBe('number');
+    expect(typeof verified?.exp).toBe('number');
+    expect(verified!.exp).toBeGreaterThan(verified!.iat);
   });
 });
