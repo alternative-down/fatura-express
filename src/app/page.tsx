@@ -243,8 +243,3 @@ export default function HomePage() {
     </div>
   );
 }
-
-export const metadata = {
-  title: "Fatura Profissional Online | Em 2 Minutos | Alternative Down",
-  description: "Gere faturas profissionais com valor fiscal em 2 minutos. Campos guiados, cálculo automático, PDF imediato. A partir de R$ 19/mês.",
-};
