@@ -23,26 +23,74 @@ export const metadata: Metadata = {
     canonical: "https://fatura.alternativedown.com.br",
   },
   other: {
-    "application/ld+json": JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      name: "Fatura Express",
-      description: "Emita faturas profissionais com campos fiscais completos em minutos. A partir de R$ 19/mês.",
-      url: "https://fatura.alternativedown.com.br",
-      applicationCategory: "BusinessApplication",
-      operatingSystem: "Web",
-      offers: {
-        "@type": "Offer",
-        price: "19",
-        priceCurrency: "BRL",
-        description: "Plano Individual: até 30 faturas por mês a partir de R$ 19/mês",
+    "application/ld+json": JSON.stringify([
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        name: "Fatura Express",
+        description: "Emita faturas profissionais com campos fiscais completos em minutos. A partir de R$ 19/mês.",
+        url: "https://fatura.alternativedown.com.br",
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Web",
+        offers: {
+          "@type": "Offer",
+          price: "19",
+          priceCurrency: "BRL",
+          description: "Plano Individual: até 30 faturas por mês a partir de R$ 19/mês",
+        },
+        provider: {
+          "@type": "Organization",
+          name: "Alternative Down",
+          url: "https://alternativedown.com.br",
+        },
       },
-      provider: {
-        "@type": "Organization",
-        name: "Alternative Down",
-        url: "https://alternativedown.com.br",
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "A fatura tem valor fiscal?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Sim. Uma fatura com os dados fiscais completos — CNPJ das partes, descrição, valores, alíquotas — tem valor fiscal para fins de comprovação comercial.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Preciso ter CNPJ?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Sim. A Fatura Express requer CNPJ do emitente (MEI ou empresa). Para autônomos sem CNPJ, use Recibo Express.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "É gratuito?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Não. O plano Individual (R$ 19/mês) dá até 30 faturas por mês. O plano Ilimitado (R$ 49/mês) remove o limite.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Posso emitir nota fiscal com isso?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Não. A Fatura Express emite documentos com valor comercial. Para NF-e oficial, use um emissor da Receita Federal.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Como envio para o cliente?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Você baixa o PDF e envia por e-mail ou qualquer meio que preferir.",
+            },
+          },
+        ],
       },
-    }),
+    ]),
   },
 };
 
