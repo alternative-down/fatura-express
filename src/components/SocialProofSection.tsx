@@ -43,7 +43,7 @@ export function SocialProofSection() {
       <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 rounded-full px-4 py-1.5">
         <span className="text-blue-500 text-sm">🔥</span>
         <span className="text-sm font-semibold text-blue-700">
-          Mais de {formatCount(count)} faturas emitidas
+          Milhares de faturas emitidas para SMEs brasileiras
         </span>
       </div>
     </div>
