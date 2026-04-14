@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SocialProofSection } from '@/components/SocialProofSection';
 
 export default function HomePage() {
   return (
@@ -37,6 +38,9 @@ export default function HomePage() {
           <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto">
             Preencha os dados, baixe o PDF. Uma fatura com valor fiscal, em 2 minutos — sem contador, sem planilha, sem complicação.
           </p>
+
+          {/* Social proof badge */}
+          <SocialProofSection />
 
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <Link href="/signup" className="bg-gradient-to-r from-blue-600 to-indigo-500 text-white font-bold px-8 py-4 rounded-xl hover:shadow-lg transition text-lg">
