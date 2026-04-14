@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ClientToaster from "@/components/ClientToaster";
 
 export const metadata: Metadata = {
   title: "Fatura Profissional Online | Fatura Express — Alternative Down",
@@ -97,7 +98,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <ClientToaster />
+      </body>
     </html>
   );
 }
